@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="phone.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="phone.js"></script>
+</head>
+<body>
+<div class="tabs">
+    <button class="tablink" onclick="openTab(event, 'dialer')">Dialer</button>
+    <button class="tablink" onclick="openTab(event, 'contacts')">Contacts</button>
+    <button class="tablink" onclick="openTab(event, 'addContact')">Add Contact</button>
+    <button class="tablink" onclick="openTab(event, 'gestures')">Gestures</button>
+</div>
+
+<div id="dialer" class="tabcontent">
+    <h3>Dialer</h3>
+    <input type="text" id="phoneNumber" class="form__input" placeholder="Enter phone number">
+    <br>
+    <div class="keypad">
+        <div>
+            <button class="key" onclick="addDigit(1)">1</button>
+            <button class="key" onclick="addDigit(2)">2</button>
+            <button class="key" onclick="addDigit(3)">3</button>
+        </div>
+        <div>
+            <button class="key" onclick="addDigit(4)">4</button>
+            <button class="key" onclick="addDigit(5)">5</button>
+            <button class="key" onclick="addDigit(6)">6</button>
+        </div>
+        <div>
+            <button class="key" onclick="addDigit(7)">7</button>
+            <button class="key" onclick="addDigit(8)">8</button>
+            <button class="key" onclick="addDigit(9)">9</button>
+        </div>
+        <div>
+            <button class="key" onclick="addDigit('*')">*</button>
+            <button class="key" onclick="addDigit(0)">0</button>
+            <button class="key" onclick="addDigit('#')">#</button>
+        </div>
+    </div>
+    <br>
+    <div class="button-container">
+    <button class="button-28" onclick="dialNumber()">Dial</button>
+    <button class="button-28" onclick="clearInput()">Clear</button>
+    </div>
+</div>
+
+<div id="contacts" class="tabcontent">
+    <h3>Contacts</h3>
+    <div id="contactList"></div>
+</div>
+
+<div id="addContact" class="tabcontent">
+    <h3>Add Contact</h3>
+    <form onsubmit="addContact(event)">
+        <div class="group">
+            <input type="text" id="name" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Name</label>
+        </div>
+        <div class="group">
+            <input type="text" id="phone" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Phone</label>
+        </div>
+        <div class="group">
+            <input type="text" id="email" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Email</label>
+        </div>
+        <div class="button-container">
+        <button class="button-28" type="submit">Add</button>
+        <button class="button-28" type="button" onclick="clearForm()">Clear</button>
+        </div>
+    </form>
+</div>
+
+<div id="gestures" class="tabcontent">
+    <h3>Gestures</h3>
+    <div>
+        <input type="text" id="gesture_output" class="form__input"  placeholder="Ready" readonly>
+    </div>
+    <div id="gesture_area" class="gesture-area"></div>
+</div>
+</body>
+</html>
