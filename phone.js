@@ -142,7 +142,10 @@ $(document).ready(function() {
                     $("#gesture_output").val("swipe right");
                 }
             } else if(startY<endY){
-                $("#gesture_output").val("mouse down");
+                $("#gesture_output").val("swipe down");
+            }
+            else if(startY>endY){
+                $("#gesture_output").val("swipe up");
             }else {
                 $("#gesture_output").val("mouse up");
             }
